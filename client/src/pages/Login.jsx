@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import React, { useState } from "react";
 // import { useAppContext } from "../context/AppContext";
 // import toast from "react-hot-toast";
@@ -129,18 +130,29 @@
 
 // export default UserLogin;
 
+=======
+>>>>>>> 5ac73a1b5276266d1448db0fff368a85326d2a4c
 import React, { useState } from "react";
 import { useAppContext } from "../context/AppContext";
 import toast from "react-hot-toast";
 import Navbar from "../components/Navbar";
+<<<<<<< HEAD
 import { useNavigate, Link, useLocation } from "react-router-dom"; // ✅ added useLocation
+=======
+import { useNavigate, Link } from "react-router-dom";
+>>>>>>> 5ac73a1b5276266d1448db0fff368a85326d2a4c
 import { motion } from "framer-motion";
 import { Mail, Lock } from "lucide-react";
 
 const UserLogin = () => {
+<<<<<<< HEAD
   const { axios, setUser, setToken, theme } = useAppContext();
   const navigate = useNavigate();
   const location = useLocation(); // ✅ capture redirect info
+=======
+  const { axios, setUser, setToken, theme } = useAppContext(); // ✅ get theme
+  const navigate = useNavigate();
+>>>>>>> 5ac73a1b5276266d1448db0fff368a85326d2a4c
   const [formData, setFormData] = useState({ email: "", password: "" });
 
   const handleChange = (e) =>
@@ -160,9 +172,14 @@ const UserLogin = () => {
           "Authorization"
         ] = `Bearer ${data.data.token}`;
 
+<<<<<<< HEAD
         // ✅ Redirect back if "from" exists, else default
         const redirectTo = location.state?.from?.pathname || "/";
         navigate(redirectTo, { replace: true });
+=======
+        if (data.data.user.role === "admin") navigate("/admin");
+        else navigate("/");
+>>>>>>> 5ac73a1b5276266d1448db0fff368a85326d2a4c
       } else toast.error(data.message);
     } catch (err) {
       toast.error(err.response?.data?.message || err.message);

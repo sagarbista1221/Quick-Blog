@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // // frontend: src/pages/Blog.jsx
 // import React, { useEffect, useState, useRef } from "react";
 // import { useParams, useNavigate } from "react-router-dom";
@@ -460,6 +461,11 @@
 
 import React, { useEffect, useState, useRef } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
+=======
+// frontend: src/pages/Blog.jsx
+import React, { useEffect, useState, useRef } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+>>>>>>> 5ac73a1b5276266d1448db0fff368a85326d2a4c
 import { assets } from "../assets/assets";
 import Navbar from "../components/Navbar";
 import Moment from "moment";
@@ -503,6 +509,7 @@ const ThumbsDownIcon = ({ filled }) => (
 const Blog = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+<<<<<<< HEAD
   const location = useLocation();
   const { axios, user } = useAppContext();
 
@@ -511,6 +518,16 @@ const Blog = () => {
   const [name, setName] = useState(user?.name || "");
   const [content, setContent] = useState("");
 
+=======
+  const { axios, user } = useAppContext(); // get logged-in user info
+
+  const [data, setData] = useState(null);
+  const [comments, setComments] = useState([]);
+  const [name, setName] = useState(user?.name || ""); // auto-fill if logged in
+  const [content, setContent] = useState("");
+
+  // Like/Dislike UI state
+>>>>>>> 5ac73a1b5276266d1448db0fff368a85326d2a4c
   const myId = user?._id || user?.id;
   const [likeCount, setLikeCount] = useState(0);
   const [dislikeCount, setDislikeCount] = useState(0);
@@ -518,6 +535,10 @@ const Blog = () => {
   const [dislikedByMe, setDislikedByMe] = useState(false);
   const [busy, setBusy] = useState(false);
 
+<<<<<<< HEAD
+=======
+  // gallery state
+>>>>>>> 5ac73a1b5276266d1448db0fff368a85326d2a4c
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const autoplayRef = useRef(null);
@@ -544,7 +565,11 @@ const Blog = () => {
       if (data.success) {
         setData(data.blog);
         computeInitialReactions(data.blog);
+<<<<<<< HEAD
         setIndex(0);
+=======
+        setIndex(0); // reset gallery index
+>>>>>>> 5ac73a1b5276266d1448db0fff368a85326d2a4c
       } else {
         toast.error(data.message);
       }
@@ -568,21 +593,37 @@ const Blog = () => {
 
   const addComment = async (e) => {
     e.preventDefault();
+<<<<<<< HEAD
     if (!user) {
       toast.error("You must be logged in to comment");
       navigate("/login", { state: { from: location } }); // ✅ pass redirect info
       return;
     }
+=======
+
+    if (!user) {
+      toast.error("You must be logged in to comment");
+      navigate("/login");
+      return;
+    }
+
+>>>>>>> 5ac73a1b5276266d1448db0fff368a85326d2a4c
     try {
       const { data } = await axios.post("/api/blog/add-comment", {
         blog: id,
         name,
         content,
       });
+
       if (data.success) {
         toast.success(data.message);
+<<<<<<< HEAD
         setContent("");
         fetchComments();
+=======
+        setContent(""); // clear comment textarea
+        fetchComments(); // refresh comments after adding
+>>>>>>> 5ac73a1b5276266d1448db0fff368a85326d2a4c
       } else {
         toast.error(data.message);
       }
@@ -594,7 +635,11 @@ const Blog = () => {
   const handleLike = async () => {
     if (!user) {
       toast.error("Please login to like posts");
+<<<<<<< HEAD
       return navigate("/login", { state: { from: location } }); // ✅ redirect
+=======
+      return navigate("/login");
+>>>>>>> 5ac73a1b5276266d1448db0fff368a85326d2a4c
     }
     try {
       setBusy(true);
@@ -617,7 +662,11 @@ const Blog = () => {
   const handleDislike = async () => {
     if (!user) {
       toast.error("Please login to dislike posts");
+<<<<<<< HEAD
       return navigate("/login", { state: { from: location } }); // ✅ redirect
+=======
+      return navigate("/login");
+>>>>>>> 5ac73a1b5276266d1448db0fff368a85326d2a4c
     }
     try {
       setBusy(true);
@@ -637,6 +686,7 @@ const Blog = () => {
     }
   };
 
+<<<<<<< HEAD
   // gallery autoplay
   useEffect(() => {
     if (!data || !Array.isArray(data.images) || data.images.length <= 1) return;
@@ -644,10 +694,25 @@ const Blog = () => {
     autoplayRef.current = setInterval(() => {
       setIndex((prev) => (prev + 1) % data.images.length);
     }, 3000);
+=======
+  // Gallery autoplay
+  useEffect(() => {
+    if (!data || !Array.isArray(data.images) || data.images.length <= 1) return;
+    if (paused) return;
+
+    autoplayRef.current = setInterval(() => {
+      setIndex((prev) => (prev + 1) % data.images.length);
+    }, 3000);
+
+>>>>>>> 5ac73a1b5276266d1448db0fff368a85326d2a4c
     return () => clearInterval(autoplayRef.current);
   }, [data, paused]);
 
   useEffect(() => {
+<<<<<<< HEAD
+=======
+    // make sure index in bounds whenever data changes
+>>>>>>> 5ac73a1b5276266d1448db0fff368a85326d2a4c
     if (!data || !Array.isArray(data.images)) {
       setIndex(0);
     } else if (index >= data.images.length) {

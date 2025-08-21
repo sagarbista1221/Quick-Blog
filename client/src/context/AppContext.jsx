@@ -192,16 +192,35 @@ export const AppProvider = ({ children }) => {
         email,
         password,
       });
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5ac73a1b5276266d1448db0fff368a85326d2a4c
       if (data.success) {
         localStorage.setItem("token", data.data.token);
         localStorage.setItem("user", JSON.stringify(data.data.user));
         setToken(data.data.token);
         setUser(data.data.user);
+<<<<<<< HEAD
         axios.defaults.headers.common[
           "Authorization"
         ] = `Bearer ${data.data.token}`;
         toast.success("Login successful");
         // 🚨 remove navigate("/") here — handled in Login.jsx
+=======
+
+        axios.defaults.headers.common[
+          "Authorization"
+        ] = `Bearer ${data.data.token}`;
+
+        toast.success("Login successful");
+
+        if (data.data.user.role === "admin") {
+          navigate("/admin");
+        } else {
+          navigate("/");
+        }
+>>>>>>> 5ac73a1b5276266d1448db0fff368a85326d2a4c
       } else {
         toast.error(data.message);
       }
