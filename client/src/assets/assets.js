@@ -9,8 +9,13 @@ import blog_pic_8 from "./blog_pic_8.png";
 import blog_pic_9 from "./blog_pic_9.png";
 import blog_pic_10 from "./blog_pic_10.png";
 import facebook_icon from "./facebook_icon.svg";
+import instagram_icon from "./instagram_icon.png";
+import youtube_icon from "./youtube_icon.png";
 import googleplus_icon from "./googleplus_icon.svg";
 import twitter_icon from "./twitter_icon.svg";
+import linkedin_icon from "./linkedin_icon.png";
+import location_icon from "./location_icon.png";
+import phone_icon from "./phone_icon.png";
 import logo from "./logo.svg";
 import arrow from "./arrow.svg";
 import logo_light from "./logo_light.svg";
@@ -31,11 +36,24 @@ import dashboard_icon_1 from "./dashboard_icon_1.svg";
 import dashboard_icon_2 from "./dashboard_icon_2.svg";
 import dashboard_icon_3 from "./dashboard_icon_3.svg";
 import dashboard_icon_4 from "./dashboard_icon_4.svg";
+import subscriber_icon from "./subscriber_icon.png";
+import message_icon from "./message_icon.png";
+import admin_icon from "./admin_icon.png";
+import delete_icon from "./delete_icon.png";
 
 export const assets = {
   facebook_icon,
+  delete_icon,
+  admin_icon,
+  message_icon,
   googleplus_icon,
+  location_icon,
+  linkedin_icon,
+  phone_icon,
+  subscriber_icon,
   twitter_icon,
+  instagram_icon,
+  youtube_icon,
   logo,
   arrow,
   logo_light,
@@ -259,23 +277,77 @@ export const dashboard_data = {
   recentBlogs: blog_data.slice(0, 5),
 };
 
+// export const footer_data = [
+//   {
+//     title: "Contact Us",
+//     links: ["Home", "Best Sellers", "Offers & Deals", "Contact Us", "FAQs"],
+//   },
+
 export const footer_data = [
   {
-    title: "Quick Links",
-    links: ["Home", "Best Sellers", "Offers & Deals", "Contact Us", "FAQs"],
-  },
-  {
-    title: "Need Help?",
-    links: [
-      "Delivery Information",
-      "Return & Refund Policy",
-      "Payment Methods",
-      "Track your Order",
-      "Contact Us",
+    title: "Contact Us",
+    info: [
+      "Tinkune-32, Kathmandu",
+      "01-3489298, 9745869574",
+      "sagarbista@gmail.com",
+      "contact_button",
     ],
   },
+
+  // other sections like "Follow Us", etc.
+
+  // {
+  //   title: "Need Help?",
+  //   links: [
+  //     "Delivery Information",
+  //     "Return & Refund Policy",
+  //     "Payment Methods",
+  //     "Track your Order",
+  //     "Contact Us",
+  //   ],
+  // },
+
+  // {
+  //   title: "Follow Us",
+  //   links: ["Instagram", "Twitter", "Facebook", "YouTube"],
+  // },
+
   {
     title: "Follow Us",
-    links: ["Instagram", "Twitter", "Facebook", "YouTube"],
+    links: [
+      {
+        label: "Instagram",
+        url: "https://www.instagram.com/",
+        icon: instagram_icon,
+      },
+      {
+        label: "Twitter",
+        url: "https://x.com/",
+        icon: twitter_icon,
+      },
+      {
+        label: "Facebook",
+        url: "https://www.facebook.com/profile.php?id=61556267917387",
+        icon: facebook_icon,
+      },
+      {
+        label: "YouTube",
+        url: "https://www.youtube.com/@emigarsagar6348",
+        icon: youtube_icon,
+      },
+    ],
   },
+
+  // {
+  //   title: "Follow Us",
+  //   links: [
+  //     { label: "Instagram", url: "https://www.instagram.com/" },
+  //     { label: "Twitter", url: "https://x.com/" },
+  //     {
+  //       label: "Facebook",
+  //       url: "https://www.facebook.com/profile.php?id=61556267917387",
+  //     },
+  //     { label: "YouTube", url: "https://www.youtube.com/@emigarsagar6348" },
+  //   ],
+  // },
 ];
